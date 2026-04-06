@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h3>Checkout 💳</h3>
+
+<form method="post" class="bg-white p-4 shadow rounded">
+{% csrf_token %}
+
+<input class="form-control mb-3" name="address" placeholder="Full Address">
+
+<input class="form-control mb-3" name="city" placeholder="City">
+
+<input class="form-control mb-3" name="pincode" placeholder="Pincode">
+
+<select class="form-control mb-3" name="payment">
+    <option>Cash on Delivery</option>
+    <option>UPI</option>
+</select>
+
+<button class="btn btn-primary w-100">
+    Place Order
+</button>
+
+</form>
+
+{% endblock %}

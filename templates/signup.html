@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-5" style="max-width:400px;">
+
+<h3 class="mb-3" align ="center"><b>Signup</b></h3>
+
+<form method="post" class="bg-white p-4 shadow rounded">
+    {% csrf_token %}
+    
+    {% if show_login %}
+        <div class="alert alert-warning">
+            Username already exists.
+            <a href="{% url 'login' %}" class="btn btn-sm btn-primary ms-2">
+                Login Here
+            </a>
+        </div>
+    {% endif %}
+
+    <!-- Username -->
+    <input class="form-control mb-3" name="username" placeholder="Username" required>
+
+    <!-- Email (NEW) -->
+    <input type="email" class="form-control mb-3" name="email" placeholder="Email" required>
+
+    <!-- Password -->
+    <input type="password" class="form-control mb-3" name="password" placeholder="Password" required>
+
+    <!-- Mobile -->
+    <input type="text" name="mobile" placeholder="Mobile Number" class="form-control mb-2" required>
+
+    <!-- Address -->
+    <textarea name="address" placeholder="Address" class="form-control mb-2" required></textarea>
+
+    <button class="btn btn-success w-100">Signup</button>
+
+</form>
+
+<p class="text-danger">{{ error }}</p>
+
+{% if show_login %}
+<a href="/login/" class="btn btn-primary mt-2 w-100">
+    Go to Login
+</a>
+{% endif %}
+
+</div>
+<style>
+body{
+    margin:0;
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    font-family:Arial;
+}
+
+
+</body>
+</style>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>👤 My Profile</h2>
+
+<div class="card p-4">
+   <p><b>Name:</b> {{ request.user.username }}</p>
+<p><b>Email:</b> {{ request.user.email }}</p>
+<p><b>Mobile:</b> {{ profile.mobile }}</p>
+<p><b>Address:</b> {{ profile.address }}</p>
+</div>
+
+{% endblock %}

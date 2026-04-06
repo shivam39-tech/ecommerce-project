@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="card p-4 shadow">
+    
+    <h2>{{ blog.title }}</h2>
+
+    {% if blog.image %}
+        <img src="{{ blog.image.url }}" class="img-fluid mb-3" style="max-height:400px; object-fit:cover;">
+    {% endif %}
+
+    <p>{{ blog.content }}</p>
+
+    <small class="text-muted">Posted on: {{ blog.created_at }}</small>
+
+</div>
+
+{% endblock %}
