@@ -136,6 +136,9 @@ CLOUDINARY_STORAGE = {
     'API_KEY': os.environ.get('API_KEY'),
     'API_SECRET': os.environ.get('API_SECRET'),
 }
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 cloudinary.config(
     cloud_name = os.environ.get("CLOUD_NAME"),
     api_key = os.environ.get("API_KEY"),
@@ -143,4 +146,3 @@ cloudinary.config(
     secure = True
 )
 
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
