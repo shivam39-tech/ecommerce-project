@@ -25,9 +25,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-1i*8(^3s@dd!+8io=qyp$s4qt&hme$%a#+*9$6*x@8-4%u9l13'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ.get("DEBUG","False") == "True"
 
-ALLOWED_HOSTS = ['*']
+SECRET_KEY = os.environ.get("SECRET_KEY")
+
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS","").split(",")
 
 
 # Application definition
@@ -78,7 +80,7 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get(postgresql://ecommerce_db_v7hg_user:buFh6BjtvPRu7opQzwPwYW1lB5vik0Az@dpg-d7a071shg0os73b6ndqg-a.oregon-postgres.render.com/ecommerce_db_v7hg)    )
+    "default": dj_database_url.config(default=os.environ.get("DATABASE_URL")    )
 }
 
 # Password validation
