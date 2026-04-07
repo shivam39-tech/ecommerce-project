@@ -5,11 +5,11 @@ from .models import Product, Cart, Order, OrderItem
 from django.contrib.auth.decorators import login_required
 from .models import Blog
 from .models import Profile
-import os
+
 
 
 def signup(request):
-    print("CLOUD_NAME :", os.environ.get("CLOUD_NAME"))
+    
     if request.method == 'POST':
         name = request.POST.get('username')
         email = request.POST.get('email')          # Collect email
