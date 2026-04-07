@@ -1,15 +1,18 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField
 
 class Product(models.Model):
     name = models.CharField(max_length=200)
     price = models.IntegerField()
     description = models.TextField()
-    image = models.ImageField(upload_to='products/')
+    image = CloudinaryField('image')
 
     def _str_(self):
         return self.name
+    
+    
 
 
 class Cart(models.Model):
@@ -37,7 +40,7 @@ class OrderItem(models.Model):
 class Blog(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
-    image = models.ImageField(upload_to='blogs/', blank=True, null=True)
+    image = CloudinaryField('image', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def _str_(self):
